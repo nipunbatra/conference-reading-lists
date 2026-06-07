@@ -12,6 +12,10 @@ window.READING_LIST = {
     "(abstracts not yet read) — verify before assigning. Tiers: ★ must-read, ○ adjacent/skim. " +
     "Use the search box to filter by topic, lab project, or student area.",
 
+  workshopPapersNote:
+    "At build time (conference week, June 2026) only EarthVision had published its full program — its most lab-relevant papers are listed below. " +
+    "Agriculture-Vision, MORSE and MONTI had not yet posted accepted papers; CV4Science uses rolling review, so its invited talks are listed instead. Re-scrape after proceedings appear.",
+
   // Short glossary so students know what each lab project is.
   labWorks: {
     "SentinelKilnDB": "OBB brick-kiln detection dataset & benchmark, South Asia satellite imagery (2025)",
@@ -38,11 +42,27 @@ window.READING_LIST = {
     { title: "EarthVision: Large-Scale Computer Vision for Remote Sensing Imagery", when: "Thu, full day",
       url: "https://www.grss-ieee.org/events/earthvision-2026/", tier: "must",
       tags: ["remote-sensing","satellite","SAR","yield"],
-      why: "The flagship RS@CVPR venue — directly home turf for SentinelKilnDB, Space-to-Policy, SAR and yield student work. Has a paper track + challenges." },
+      why: "The flagship RS@CVPR venue — directly home turf for SentinelKilnDB, Space-to-Policy, SAR and yield student work. Has a paper track + challenges.",
+      papers: [
+        { title: "SHRUG-FM: Reliability-Aware Foundation Models for Earth Observation (oral)", why: "Reliability/uncertainty-aware EO foundation model — fuses the lab's remote-sensing and UQ interests." },
+        { title: "THOR: A Versatile Foundation Model for Earth Observation Climate & Society Applications", why: "EO foundation model aimed at climate/society tasks — a candidate backbone for kiln/policy pipelines." },
+        { title: "Beyond Conditional Diffusion: Physics-Guided Joint Forecasting of Physical Drivers and Multispectral Satellite Data", why: "Physics-guided diffusion that jointly forecasts drivers + imagery — the WRF/CAMx-emulation idea applied to satellite data." },
+        { title: "CAFOSat: A Strongly Annotated Dataset for Infrastructure-Aware CAFO Mapping from High-Res Imagery", why: "Detecting man-made facilities in high-res satellite — the closest analog to brick-kiln mapping / SentinelKilnDB." },
+        { title: "Covariance Meets Context: Transformer-Based SAR Covariance Prediction Across Frequencies and Time", why: "SAR-specific temporal/frequency modeling — for the SAR student project." },
+        { title: "Pretrain Where? How Pretraining Data Diversity Impacts Geospatial Foundation Model Performance", why: "Practical pretraining-data guidance — directly useful before training kiln detectors." },
+        { title: "Location Is All You Need: Continuous Spatiotemporal Neural Representations of EO Data", why: "Continuous spatio-temporal EO representations — relevant to AIRDELHI fields and sensor placement." },
+        { title: "Sub-Meter Canopy Height Models from Sentinel-2 via Generative Flow Matching", why: "Fine-scale regression from coarse Sentinel-2 — super-resolution-style environmental mapping." },
+        { title: "NeuCo-Bench: A Benchmark Framework for Neural Embeddings in Earth Observation", why: "Benchmark methodology for EO embeddings — comparator design for the lab's own benchmarks." }
+      ] },
     { title: "CV4Science: Using Computer Vision for the Sciences", when: "Thu, PM",
       url: "https://sites.google.com/nyu.edu/computervisionforscience", tier: "must",
       tags: ["science","interpretable","discovery"],
-      why: "Co-organized by Utkarsh Mall (author of DiSciPLE). The whole-lab ethos: CV as a scientific instrument. Best venue to meet the interpretable-scientific-program crowd." },
+      why: "Co-organized by Utkarsh Mall (author of DiSciPLE). The whole-lab ethos: CV as a scientific instrument. Best venue to meet the interpretable-scientific-program crowd. (Poster papers via rolling review — not public yet; key invited talks below.)",
+      papers: [
+        { kind: "talk", title: "Are remote sensing foundation models ready for science applications? — Hannah Kerner (ASU)", why: "Asks exactly whether RS foundation models are usable for science — central to the lab's kiln/yield/air-quality pipelines." },
+        { kind: "talk", title: "Active Measurement: Turning Computer Vision Models into Scientific Instruments — Subhransu Maji (UMass)", why: "Human-in-the-loop CV as a measurement tool — the lab's active-learning + sensing philosophy." },
+        { kind: "talk", title: "From Neural Rendering to Scientific Inference: Physics-Informed NeRFs — Robert Jarolim (NASA)", why: "Physics-informed reconstruction for science — the interpretable/physics-grounded modeling direction." }
+      ] },
     { title: "MORSE: Foundation & Large Vision Models in Remote Sensing (2nd)", when: "Wed, PM",
       url: "https://sites.google.com/view/cvpr-morse/", tier: "must",
       tags: ["remote-sensing","foundation-models"],

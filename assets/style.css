@@ -111,6 +111,16 @@ header.site {
 .ws .when { color: var(--muted); font-size: 12px; }
 .ws p { margin: 8px 0 0; font-size: 13.5px; color: var(--muted); }
 
+/* Workshop papers */
+.wp-section { margin-top: 22px; border-top: 1px dashed var(--line); padding-top: 18px; }
+.wp-section > h3 { font-size: 17px; margin: 0 0 4px; }
+.wp-block { margin-top: 14px; }
+.wp-block h4 { margin: 0 0 6px; font-size: 15px; }
+ul.ws-papers { margin: 0; padding-left: 18px; }
+ul.ws-papers li { font-size: 13.5px; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+.wp-title { color: var(--text); font-weight: 600; }
+.wp-why { color: var(--muted); }
+
 /* Cluster */
 .cluster { margin: 34px 0 0; scroll-margin-top: 84px; }
 .cluster > h2 { font-size: 21px; margin: 0 0 3px; letter-spacing: -.01em; }

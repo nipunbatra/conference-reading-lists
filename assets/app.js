@@ -128,6 +128,36 @@
         grid.appendChild(card);
       });
       ws.appendChild(grid);
+
+      // most-relevant papers/talks pulled from specific workshops
+      var withPapers = D.workshops.filter(function (w) { return w.papers && w.papers.length; });
+      if (withPapers.length) {
+        var sec2 = el("div", "wp-section");
+        sec2.appendChild(el("h3", null, "Most relevant papers & talks from these workshops"));
+        if (D.workshopPapersNote) sec2.appendChild(el("p", "sub", D.workshopPapersNote));
+        withPapers.forEach(function (w) {
+          var blk = el("div", "wp-block");
+          var hh = el("h4");
+          var aa = el("a", null, w.title.split(":")[0].split("(")[0].trim());
+          aa.href = w.url; aa.target = "_blank"; aa.rel = "noopener";
+          hh.appendChild(aa);
+          blk.appendChild(hh);
+          var ul = el("ul", "ws-papers");
+          w.papers.forEach(function (pp) {
+            var li = el("li");
+            li.appendChild(el("span", "wp-title", (pp.kind === "talk" ? "🎤 " : "") + pp.title));
+            if (pp.why) {
+              li.appendChild(document.createTextNode(" — "));
+              li.appendChild(el("span", "wp-why", pp.why));
+            }
+            ul.appendChild(li);
+          });
+          blk.appendChild(ul);
+          sec2.appendChild(blk);
+        });
+        ws.appendChild(sec2);
+      }
+
       main.appendChild(ws);
     }
 
