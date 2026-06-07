@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conference Reading Lists — Sustainability Lab</title>
+  <meta name="description" content="Curated conference paper reading lists for the Sustainability Lab, IIT Gandhinagar, mapped to lab projects.">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap site-inner">
+      <div class="brand"><span class="leaf">🌿</span><div>Lab Reading Lists<small>Sustainability Lab · IIT Gandhinagar</small></div></div>
+      <button class="toolbtn" data-theme-toggle aria-label="Toggle theme">◐ Theme</button>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      <section class="hero">
+        <h1>Conference reading lists</h1>
+        <p class="lead">Each conference below is curated for the lab's research — energy/NILM, air quality,
+          health sensing, satellite &amp; remote sensing, and the ML methods behind them (active learning,
+          uncertainty, agentic systems). Every paper is mapped to the lab project it connects to, with a
+          one-line reason and the abstract one click away. Pick a venue to start.</p>
+      </section>
+      <div id="venues"></div>
+      <footer class="site">
+        Sustainability Lab, IIT Gandhinagar ·
+        <a href="https://sustainability-lab.github.io/">lab site</a> ·
+        new conference? see <code>README.md</code>.
+      </footer>
+    </div>
+  </main>
+  <script src="venues.js"></script>
+  <script src="assets/app.js"></script>
+  <script>window.CRL.renderLanding();</script>
+</body>
+</html>
