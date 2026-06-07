@@ -17,6 +17,7 @@ window.READING_LIST = {
     "SentinelKilnDB": "OBB brick-kiln detection dataset & benchmark, South Asia satellite imagery (2025)",
     "Space-to-Policy": "Scalable brick-kiln detection + automatic compliance monitoring (2025)",
     "JoulesEye": "Energy expenditure + respiration from thermal imagery while exercising (IMWUT 2024)",
+    "ApneaEye": "Sensing respiration & sleep apnea from thermal imaging in real-world conditions (ongoing) — needs robust nostril localization in low-res thermal",
     "ThermEval": "Structured benchmark for evaluation of thermal models (2026)",
     "SpiroMask": "Lung-function measurement from consumer-grade masks (2023)",
     "SpiroActive": "Active learning for efficient spirometry data acquisition (2024)",
@@ -234,6 +235,38 @@ window.READING_LIST = {
         { tier:"adjacent", title:"VT-Intrinsic: Physics-Based Reflectance/Shading from a Visible-Thermal Pair",
           url:"https://openaccess.thecvf.com/content/CVPR2026/html/Yuan_VT-Intrinsic_Physics-Based_Decomposition_of_Reflectance_and_Shading_using_a_Single_CVPR_2026_paper.html",
           maps:["JoulesEye"], why:"RGB+thermal intrinsic decomposition." }
+      ]
+    },
+    {
+      id: "thermal-detection",
+      name: "Low-res thermal small-object & landmark detection",
+      desc: "The JoulesEye/ApneaEye pain point: localizing a tiny region (the nostril) in low-resolution, low-SNR thermal video to track breathing. Infrared small-target detection, thermal video super-resolution, and temporally-consistent keypoint detection under degradation.",
+      labMap: ["JoulesEye", "ApneaEye"],
+      papers: [
+        { tier:"must", title:"Seeing Through the Noise: Improving Infrared Small Target Detection and Segmentation from a Noise-Suppression Perspective",
+          url:"https://openaccess.thecvf.com/content/CVPR2026/html/Yuan_Seeing_Through_the_Noise_Improving_Infrared_Small_Target_Detection_and_CVPR_2026_paper.html",
+          maps:["ApneaEye","JoulesEye"], why:"Detects + segments tiny targets in noisy/low-SNR infrared — directly the nostril-region problem in low-res thermal." },
+        { tier:"must", title:"Target-Aware Invertible Encoder with Reconstruction Guidance for Infrared Small Target Detection",
+          url:"https://openaccess.thecvf.com/content/CVPR2026/html/Yan_Target-Aware_Invertible_Encoder_with_Reconstruction_Guidance_for_Infrared_Small_Target_CVPR_2026_paper.html",
+          maps:["ApneaEye","JoulesEye"], why:"Reconstruction-guided encoder that preserves tiny IR structures — keeps the nostril signal from being smoothed away." },
+        { tier:"must", title:"Thermal Diffusion Matters: Infrared Spatio-Temporal Video Super-Resolution through Heat-Conduction Priors",
+          url:"https://openaccess.thecvf.com/content/CVPR2026/html/Zhou_Thermal_Diffusion_Matters_Infrared_Spatial-Temporal_Video_Super-Resolution_through_Heat_Conduction_CVPR_2026_paper.html",
+          maps:["ApneaEye","JoulesEye"], why:"Physics-grounded thermal VIDEO super-resolution — upscale low-res breathing video so nostrils become resolvable, then detect." },
+        { tier:"adjacent", title:"CHAL: Causal-guided Hierarchical Anomaly-aware Learning for Moving Infrared Small Target Detection",
+          url:"https://openaccess.thecvf.com/content/CVPR2026/html/Duan_CHAL_Causal-guided_Hierarchical_Anomaly-aware_Learning_for_Moving_Infrared_Small_Target_CVPR_2026_paper.html",
+          maps:["ApneaEye"], why:"Moving small-target detection in IR video — respiration is a moving thermal signal across frames." },
+        { tier:"adjacent", title:"DyFCLT: Dynamic Frequency-Decoupled Cross-Modal Learning Transformer for Multimodal Tiny Object Detection",
+          url:"https://openaccess.thecvf.com/content/CVPR2026/html/Li_DyFCLT_Dynamic_Frequency-Decoupled_Cross-Modal_Learning_Transformer_for_Multimodal_Tiny_Object_CVPR_2026_paper.html",
+          maps:["JoulesEye","ApneaEye"], why:"RGB-thermal tiny-object detection — fuse the higher-res RGB view to localize the nostril when thermal alone is too coarse." },
+        { tier:"adjacent", title:"From Pairs to Sequences: Track-Aware Policy Gradients for Keypoint Detection",
+          url:"https://openaccess.thecvf.com/content/CVPR2026/html/Liu_From_Pairs_to_Sequences_Track-Aware_Policy_Gradients_for_Keypoint_Detection_CVPR_2026_paper.html",
+          maps:["ApneaEye"], why:"Temporally-consistent keypoint detection — track the nostril keypoint stably across a breathing sequence." },
+        { tier:"adjacent", title:"BDNet: Bio-Inspired Dual-Backbone Small Object Detection Network",
+          url:"https://openaccess.thecvf.com/content/CVPR2026/html/Guan_BDNetBio-Inspired_Dual-Backbone_Small_Object_Detection_Network_CVPR_2026_paper.html",
+          maps:["JoulesEye"], why:"General small-object detector architecture — backbone idea for low-res facial-region detection." },
+        { tier:"adjacent", title:"Small Object, Great Challenge: A Benchmark for Small Object Visual Grounding",
+          url:"https://openaccess.thecvf.com/content/CVPR2026/html/Jia_Small_Object_Great_Challenge_A_Benchmark_for_Small_Object_Visual_CVPR_2026_paper.html",
+          maps:["ApneaEye"], why:"Benchmark + grounding for very small objects — evaluation methodology for nostril-scale targets." }
       ]
     },
     {
